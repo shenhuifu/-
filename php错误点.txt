@@ -1,0 +1,29 @@
+parse：解析
+error ：错误
+syntax :语法
+error：错误
+expected  预期的
+unexpected  意外的，想不到的
+notice   通知公布
+1.点的位置写错了；会报错，
+2输出语句没写报错，解析到哪行，哪行报错；
+3.预处理语言后面没写“；”，也报错，不在当前行报错，在解析行报错；
+4*.在PHP header（语法格式中text/html ;如果写成ext/html）点击后会自动下载；
+5：php中汉字结束后加 “；”
+6：没写索引值；出现公布栏错误；
+
+-----------------------------------ajax---------------------------------------
+出现错误
+1 ajax里只request；
+2记得大小写 驼峰命名法
+3.注意英文书写；
+4.在html请求头中内容类型写错，会在PHP中报错；
+5.application/x-www-form-urlencoded。post请求头内容样式必须添加；
+6post请求体重 传入得内容xhr.send('name='+txt); 要写等号；会在PHP中报错；
+7PHP中没加“；”号会报上一行错误；
+8.PHP中书写数组值以逗号隔开；抱歉台错误”
+9.php中array后面是（）；
+10。模板引擎少写了一个等 = 号不报错；
+11.=号写在>号后面会报错。支出token “.”错误；
+12VM91:1 Uncaught ReferenceError: Invalid left-hand side in assignment
+13 dataType:"json" 中type小写了，不报错，

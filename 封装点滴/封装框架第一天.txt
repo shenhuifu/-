@@ -1,0 +1,83 @@
+
+
+
+1停止供暖了，家那边冷不冷，自己多注意保暖
+2放假了都喜欢干什么？
+3工作顺利吗
+4有什么爱好之类的吗？
+5
+
+
+
+1当两个不同属性调用同一个方法时；他们会开辟两个不一样的内存空间；、
+  也就会造成内存的浪费；把这样的方法放到自定义函数的原型上，在访问
+   同一个方法时就只会产生一个内存空间；再通过构造函数的实例进行调用
+    就可以访问上面的属性了
+
+
+2把f1属性添加到F构造函数中去；通过构造函数的实例，进行参数【selector】传递
+
+3jquery插件
+3.1原型上添加多个方法。用替换原型方法进行添加
+
+3.2  编写插件原理就是给F的原型中添加方法；不能轻易直接造作修改jquer源码插件
+3.3  两个函数之间是否能够相互访问就要看看他们之间作用域{}花扣号之间是否相同；
+   同过创建F实例。再通过F的实例的__proto__.combobox=functiong 的方法就可以访问到
+   但是__proto__存在兼容问题，IE678不支持；
+3.4由上所述；jQuery提供一种新的方法；把构造函数方法放到jquery入口函数的原型对象中去；
+  再次调用F构造函数方法，就要去jQuery.prototype.F(selector) 把dom的方法也放到jquery原型中；
+   设置F的原型指向jQuery的原型；可以让所有的F的实例都可以访问到jQuery原型中的方法；
+jQuery.prototype.F.prototype=jQuery.prototype;  要给F扩展方法的话，就可以直接给jquery添加方法即可；
+同过$就可以直接访问到该插件方法了；
+
+3.5 自执行函数，实现性执行机制，用户如果进行添加代码，就直接执行了jQuery源码了；
+  
+ __proto__指向构造函数原型的原型；而此时F.prototy指向jquery.prototype;这也是为什么F的实例可以访问到jQuery.prototype
+     上的方法原因   属性对象查找原则：首先查找自身；自身没有就__proto__记性查找；此时__proto__指向jQuery.prototype；
+       
+
+4 链式编程
+ 4.1直接return this;返回本身返回F的实例；new jQuery.prototype.F(selector)的实例就可以访问到jQuery.prototype上的方法；
+ 4.2不同元素调用同一方法时，产生两个实例，产生两个内存空间；希望用一块内存来实现操作；
+ 
+
+5.jQuery提供两大方法方法
+ 5.1 工具类方法：$函数来进行访问的，往$上添加方法；
+  $.each $.extend $.type
+ $.extend({
+       each:function(){},
+       type:function(){},
+       isString:function(){}
+   });
+
+ 5.2 DOM操作方法：$.fn.css $.fn.arr
+$.fn.css是往原型上添加方法；
+$.fn.extend({
+   css:function(){},
+   attr:function(){},
+   addClass:function(){}
+ })
+代码整洁 简单 易读；
+
+
+6 slice（）方法不会改变原数组；返回截取的数组；
+7.封装extend方法
+目的为了方便扩展方法
+通过判断实参的个数；来进行扩展方法到谁身上；
+用target，sourse；进行保存目标值和源值
+多个数组时，运用slice方法截取获取到索引1后面所有属性和值call（this指向arguments）
+  最后遍历原数组；在进行混入继承；目标键得到源数组的值；最后返回数组的目标值
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+

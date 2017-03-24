@@ -1,0 +1,17 @@
+//1、清空之前的DOM元素
+//2、排除了selector为null/undefined--->直接返回
+//3、判断selector的类型
+//  3.1、如果selector是字符串类型
+//      3.1.1、判断selector是否是html标签
+//          3.1.1.1、如果是，当成html标签来处理
+//              a、在内存中创建了一个div标签
+//              b、设置div标签的内容(innerHTML)
+//              c、获取div标签的子节点(div.childNodes)
+//              d、将这些子节点遍历追加到this中
+//          3.1.1.2、如果不是，当成选择器来处理
+//              a、通过选择器函数来获取元素，将结果保存在elements中
+//              b、将elements中的每一个元素遍历追加到this中
+//  3.2、selector是其他类型
+//      3.2.1、认为sleector是一个DOM元素，将该DOM元素添加到this中
+//          a、this[0]=selector this.length=1
+//4、返回this

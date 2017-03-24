@@ -1,0 +1,20 @@
+caller  访客   【`kao啦】
+arguments 参数   《只实参相关信息》它是一个伪数组；所以可以遍历；得到每个值和索引
+make  制造构造  [mei k]
+each  每个
+strict  严格   [`szhuik]
+callee  被召者  [kao`li]
+use    使用     [u z]
+electron    电子
+angular      笨拙的  消瘦的
+server  服务器 
+eval      重新运算求出参数的内容
+script       脚本
+variable      变量
+property       属性
+own          拥有
+enum          枚举   an nemu
+able            能
+configurable     结构的 可配置的
+writable          可写的
+instanceof        实例
